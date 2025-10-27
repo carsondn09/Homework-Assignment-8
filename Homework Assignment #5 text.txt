@@ -1,0 +1,312 @@
+Python 3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)] on darwin
+Enter "help" below or click "Help" above for more information.
+        #HOMEWORK ASSIGNMENT 5
+    #CHAPTER 6 PROGRAMMING EXERCISE 1
+def OLMD():
+    print("Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!")
+
+    
+def cow():
+    print("And on that farm he had a cow, Ee-igh, Ee-igh, Oh!")
+    print("With a moo, moo here and a moo, moo there.")
+    print("Here a moo, there a moo, everywhere a moo, moo!")
+
+    
+def pig():
+    print("And on that farm he had a pig, Ee-igh, Ee-igh, Oh!")
+    print("With a oink, oink here and a oink, oink there.")
+    print("Here a oink, there a oink, everywhere a oink, oink!")
+
+    
+def sheep():
+    print("And on that farm he had a sheep, Ee-igh, Ee-igh, Oh!")
+    print("With a baah, baah here and a baah, baah there.")
+    print("Here a baah, there a baah, everywhere a baah, baah!")
+
+    
+def horse():
+    print("And on that farm he had a horse, Ee-igh, Ee-igh, Oh!")
+    print("With a neigh, neigh here and a neigh, neigh there.")
+    print("Here a neigh, there a neigh, everywhere a neigh, neigh!")
+
+    
+def chicken():
+    print("And on that farm he had a chicken, Ee-igh, Ee-igh, Oh!")
+    print("With a balk, balk here and a balk, balk there.")
+    print("Here a balk, there a balk, everywhere a balk, balk!")
+
+    
+def OLD_MD_SONG():
+    OLMD()
+    cow()
+    OLMD()
+    pig()
+    OLMD()
+    sheep()
+    OLMD()
+    horse()
+    OLMD()
+    chicken()
+    OLMD()
+
+    
+OLD_MD_SONG()
+Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!
+And on that farm he had a cow, Ee-igh, Ee-igh, Oh!
+With a moo, moo here and a moo, moo there.
+Here a moo, there a moo, everywhere a moo, moo!
+Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!
+And on that farm he had a pig, Ee-igh, Ee-igh, Oh!
+With a oink, oink here and a oink, oink there.
+Here a oink, there a oink, everywhere a oink, oink!
+Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!
+And on that farm he had a sheep, Ee-igh, Ee-igh, Oh!
+With a baah, baah here and a baah, baah there.
+Here a baah, there a baah, everywhere a baah, baah!
+Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!
+And on that farm he had a horse, Ee-igh, Ee-igh, Oh!
+With a neigh, neigh here and a neigh, neigh there.
+Here a neigh, there a neigh, everywhere a neigh, neigh!
+Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!
+And on that farm he had a chicken, Ee-igh, Ee-igh, Oh!
+With a balk, balk here and a balk, balk there.
+Here a balk, there a balk, everywhere a balk, balk!
+Old MacDonald had a farm, Ee-igh, Ee-igh, Oh!
+    #CHAPTER 3 PROGRAMMING EXERCISE 14
+def average(num_of_nums):
+    #create a total we can keep adding to
+    total =0
+    
+    #loop time
+    for i in range(num_of_nums):
+        value =float(input("Enter a number: ")) #flaot cus we can average decimals too
+        total =total+value
+        
+    #recall our rounded average
+    return round(total/num_of_nums, 2)
+
+def ch3_prg14_2():
+    #ask for how many numbers we are averaging
+    nums =int(input("How many numbers would you like to average?: "))
+    
+    #call on our average
+    avg =average(nums)
+    
+    #display our average
+    print("The average is: ", avg)
+
+    
+ch3_prg14_2()
+How many numbers would you like to average?: 4
+Enter a number: 12
+Enter a number: 14
+Enter a number: 12
+Enter a number: 17
+The average is:  13.75
+    #CHAPTER 4 PROGRAMMING EXERCISE 8
+from graphics import *
+Traceback (most recent call last):
+  File "<pyshell#52>", line 1, in <module>
+    from graphics import *
+ModuleNotFoundError: No module named 'graphics'
+from graphics import *
+Traceback (most recent call last):
+  File "<pyshell#53>", line 1, in <module>
+    from graphics import *
+ModuleNotFoundError: No module named 'graphics'
+from graphics import *
+# for some reason my graphics file got moved and it wasnt in the location that python is calling
+import math
+def slope(dx, dy):
+    return round(dy/dx, 2) #cus slope can be decimals
+
+def length(dx, dy):
+    return round(math.sqrt(dx**2 + dy**2)) #round cus sqrts can be decimals
+
+def ch4_prg8_2():
+   #create window and set background
+    win =GraphWin("line segment info getter 2.0", 400, 400)
+    win.setBackground('white')
+    
+    #intructional captions
+    instructions1 =Text(Point(200, 20), "Click two points to create a line segment")
+    instructions1.draw(win)
+    instructions2 =Text(Point(200, 30), "Click anywhere when done")
+    instructions2.draw(win)
+    
+    #get mouse clicks plus endpoints
+    point1 =win.getMouse()
+    epoint1 =Circle(point1, 4)
+    epoint1.setFill('black')
+    epoint1.draw(win)
+    point2 =win.getMouse()
+    epoint2 =Circle(point2, 4)
+    epoint2.setFill('black')
+    epoint2.draw(win)
+    
+    #coords
+    x1, y1 =point1.getX(), point1.getY()
+    x2, y2 =point2.getX(), point2.getY()
+    
+    #line
+    line =Line(point1, point2)
+    line.setWidth(3)
+    line.draw(win)
+    
+    #midpoint
+    midX =(x1+x2)/2
+    midY =(y1+y2)/2
+    mpoint =Circle(Point(midX, midY), 5)
+    mpoint.setFill('cyan')
+    mpoint.setOutline('cyan')
+    mpoint.draw(win)
+    
+    #recall our slope distance and create our dx and dy equation
+    dx =x2-x1
+    dy =y2-y1
+    slp =slope(dx, dy)
+    lngt =length(dx, dy)
+        #slope
+    if dx !=0:
+        Slope_txt =Text(Point(40,40), "Slope: " + str(slp))
+        Slope_txt.draw(win)
+    else:
+        Slope_txt =Text(Point(40,40), "Slope: infinity")
+        Slope_txt.draw(win)
+        #length
+    Length_txt =Text(Point(40,60), "Length: " + str(lngt))
+    Length_txt.draw(win)
+    
+    #mouse click to close window
+    win.getMouse()
+    win.close()
+
+    
+ch4_prg8_2()
+ch4_prg8_2()
+    #CHAPTER 6 PROGRAMMING EXERCISE 12
+#so i think what the question is asking is for us to create a program where we would put: print(sumList([numbers here])) then it will print the sum of list of numbers inputted
+def sumList(nums):
+    #create a total we keep adding too
+    total = 0
+    
+    #loop
+    for n in nums:
+        total = total + n #n is the number we are at in the list
+        
+    #make it so we can recall our total
+    return total
+
+#test to see where i messed uo
+print(sumList([1, 2, 3, 4]))
+10
+#i did not expect that to work, i patted myself on the back
+    #THE get_some_strings ASSIGNMENT
+def get_some_strings(count):
+    #set our base string
+    string =[]
+    
+    #loops!!
+    for i in range(count): #our definite loop is how many strings we are entering
+        s = input("Enter string" + str(i+1) + ":") #using i+1 cus string start at 0 and users will presume the first string as string 1 not string 0
+        strings.append(s) #will add the most recent string to the list
+        
+    #make it so we can recall our strings later
+    return strings
+
+def main():
+    count =int(input("How many strings will you be entering?: ")) #int cus we cant enter half a string
+    
+    #calling on our get some strings prgrm
+    output =get_some_strings(count)
+    
+    #start displaying outcomes
+    print("You entered these strings")
+        #for loop for the output/getsomestrings function
+    for item in output
+    
+SyntaxError: expected ':'
+def main():
+    count =int(input("How many strings will you be entering?: ")) #int cus we cant enter half a string
+
+    #calling on our get some strings prgrm
+    output =get_some_strings(count)
+
+    #start displaying outcomes
+    print("You entered these strings")
+        #for loop for the output/getsomestrings function
+    for item in output:
+        print("-", iten) #so each string starts with a hyphen and looks like a proper list and is more professional
+
+        
+main()
+How many strings will you be entering?: 3
+Enter string1:apple
+Traceback (most recent call last):
+  File "<pyshell#154>", line 1, in <module>
+    main()
+  File "<pyshell#153>", line 5, in main
+    output =get_some_strings(count)
+  File "<pyshell#142>", line 8, in get_some_strings
+    strings.append(s) #will add the most recent string to the list
+NameError: name 'strings' is not defined. Did you mean: 'string'?
+def main():
+    count =int(input("How many strings will you be entering?: ")) #int cus we cant enter half a string
+
+    #calling on our get some strings prgrm
+    output =get_some_strings(count)
+
+    #start displaying outcomes
+    print("You entered these strings")
+        #for loop for the output/getsomestrings function
+    for item in output:
+        print("-", item) #so each string starts with a hyphen and looks like a proper list and is more professional
+
+        
+def get_some_strings(count):
+    #set our base string
+    string =[]
+
+    #loops!!
+    for i in range(count): #our definite loop is how many strings we are entering
+        s = input("Enter string" + str(i+1) + ":") #using i+1 cus string start at 0 and users will presume the first string as string 1 not string 0
+        strings.append(s) #will add the most recent string to the list
+
+    #make it so we can recall our strings later
+...     return string
+... 
+>>> #i accidentally put strings instead of string anf typoed iten instead of item
+>>> main()
+How many strings will you be entering?: 3
+Enter string1:apple
+Traceback (most recent call last):
+  File "<pyshell#160>", line 1, in <module>
+    main()
+  File "<pyshell#156>", line 5, in main
+    output =get_some_strings(count)
+  File "<pyshell#158>", line 8, in get_some_strings
+    strings.append(s) #will add the most recent string to the list
+NameError: name 'strings' is not defined. Did you mean: 'string'?
+>>> def get_some_strings(count):
+...     #set our base string
+...     string =[]
+... 
+...     #loops!!
+...     for i in range(count): #our definite loop is how many strings we are entering
+...         s = input("Enter string" + str(i+1) + ":") #using i+1 cus string start at 0 and users will presume the first string as string 1 not string 0
+...         string.append(s) #will add the most recent string to the list
+... 
+...     #make it so we can recall our strings later
+...     return string
+... 
+>>> #forgot to change the other "strings" to "string"
+>>> main()
+How many strings will you be entering?: 3
+Enter string1:apple
+Enter string2:cow
+Enter string3:baseball
+You entered these strings
+- apple
+- cow
+- baseball
+>>> #done!
